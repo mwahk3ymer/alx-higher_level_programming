@@ -8,5 +8,5 @@ def remove_char_at(s, n):
     for i in range(len(s)):
         if i != n:
             new_string += s[i]
- 
-    return new_string
+
+            return new_string
