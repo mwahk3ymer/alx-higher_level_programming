@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from sys import exc_info, stderr
+from sys import stderr
+
 
 def safe_function(fct, *args):
     try:
-        result = fct(*args)
-        return result
-    except Exception as e:
-        print("Exception: {}".format(e), file=stderr)
+        return fct(*args)
+    except (ZeroDivisionError, IndexError, TypeError, ValueError) as e:
+        stderr.write("Exception: {}\n".format(e))
         return None
