@@ -9,10 +9,3 @@ def safe_function(fct, *args):
     except Exception as e:
         print("Exception:", e, file=stderr)
         return None
-
-# Example functions
-def divide(a, b):
-    return a / b
-
-def concatenate(a, b):
-    return a + b
