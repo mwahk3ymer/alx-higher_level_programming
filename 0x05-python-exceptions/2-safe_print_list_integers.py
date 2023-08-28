@@ -2,16 +2,11 @@
 
 def safe_print_list_integers(my_list=[], x=0):
     count = 0
-    try:
-        for element in my_list:
-            if count < x:
-                if isinstance(element, int):
-                    print("{:d}".format(element), end=" ")
-                    count += 1
-            else:
-                break
-    except (ValueError, TypeError):
+        for i in range(0, x):
+            try:
+                print("{:d}".format(element), end=" ")
+                count = count + 1
+            except (ValueError, TypeError):
         print ("", end="")
-    finally:
         print("")
         return count
