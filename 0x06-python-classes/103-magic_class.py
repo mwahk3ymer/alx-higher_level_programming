@@ -8,6 +8,7 @@ the area and circumference of a circle based on its radius.
 
 import math
 
+
 class MagicClass:
     """
     A class for circle calculations.
@@ -20,7 +21,7 @@ class MagicClass:
 
         Args:
             radius (int or float): The radius of the circle (default is 0).
-        
+
         Raises:
             TypeError: If the radius is not a number (int or float).
         """
