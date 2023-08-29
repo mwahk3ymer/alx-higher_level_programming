@@ -106,7 +106,7 @@ class Square:
 
     def __ge__(self, other):
         """
-        Checks if one Square instance has a larger or equal area than the other.
+        Checks if one Square instance has  larger or equal area than other.
 
         Args:
             other (Square): The other Square instance.
@@ -130,7 +130,7 @@ class Square:
 
     def __le__(self, other):
         """
-        Checks if one Square instance has a smaller or equal area than the other.
+        Checks if 1 Square instance has  smaller or equal area than other.
 
         Args:
             other (Square): The other Square instance.
