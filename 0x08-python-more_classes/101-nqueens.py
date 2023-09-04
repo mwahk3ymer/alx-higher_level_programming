@@ -12,7 +12,7 @@ n = 0
 '''The size of the chessboard.
 '''
 pos = None
-'''The list of possible positions 
+'''The list of possible positions
 on the chessboard.
 '''
 
@@ -56,7 +56,7 @@ def group_exists(group):
     Args:
         group (list of integers): A group of possible positions.
     Returns:
-        boolean: True if it exists, 
+        boolean: True if it exists,
         otherwise False.
     '''
     global solutions
@@ -95,7 +95,7 @@ def build_solution(row, group):
 
 
 def get_solutions():
-    '''This Gets the solutions for 
+    '''This Gets the solutions for
     the given chessboard size.
     '''
     global pos, n
