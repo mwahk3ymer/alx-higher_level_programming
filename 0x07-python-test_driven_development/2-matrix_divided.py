@@ -1,23 +1,34 @@
 #!/usr/bin/python3
-"""
-This module is composed by a function that adds two numbers
+""" matrix_divided divides the given matrix
+by the parameter "div", and returns the divided matrix
 """
 
 
-def add_integer(a, b=98):
-    """ Function that adds two integer and/or float numbers
-    Args:
-        a: first number
-        b: second number
-    Returns:
-        The addition of the two given numbers
-    Raises:
-        TypeError: If a or b aren't integer and/or float numbers
+def matrix_divided(matrix, div):
+    """ Divides all elements of a matrix by "div"
+    checks if the entire list is int/float
+    checks if each list in the matrix are the same size
+    checks if "div" is an int/float or is 0
     """
-    if not isinstance(a, int) and not isinstance(a, float):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, int) and not isinstance(b, float):
-        raise TypeError("b must be an integer")
-    a = int(a)
-    b = int(b)
-    return (a + b)
+    mes0 = "matrix must be a matrix (list of lists) of integers/floats"
+    mes1 = "Each row of the matrix must have the same size"
+    res_matrix = []
+
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
+
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+
+    for lists in matrix:
+        if len(lists) != len(matrix[0]):
+            raise TypeError(mes1)
+        inner_list = []
+        for items in lists:
+            if not isinstance(items, (int, float)):
+                raise TypeError(mes0)
+            else:
+                inner_list.append(round(items / div, 2))
+        res_matrix.append(inner_list)
+
+    return res_matrix
