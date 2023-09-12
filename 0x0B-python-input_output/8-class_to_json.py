@@ -4,7 +4,6 @@ Contains the "class_to_json" function
 """
 
 
-
 def class_to_json(obj):
     """
     Converts an instance of r JSON serialization.
