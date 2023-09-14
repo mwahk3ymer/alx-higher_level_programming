@@ -5,7 +5,7 @@ This module defines the Base class.
 
 
 import json
-
+import csv
 
 class Base:
     """
@@ -76,3 +76,103 @@ class Base:
         if not json_string:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an instance with att set based on provided dictionary.
+
+        Args:
+            **dictionary: A dictionary containing attribute names and values.
+
+        Returns:
+            cls: An instance of the class with attributes set.
+        """
+        if cls.__name__ == 'Rectangle':
+            dummy_instance = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            dummy_instance = cls(1)
+        else:
+            return None
+
+        # Use the update method with the provided dictionary
+        dummy_instance.update(**dictionary)
+        return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Load instances from a JSON file and return a list of instances.
+
+        Returns:
+            list: A list of instances of the current class.
+        """
+        filename = f"{cls.__name__}.json"
+        try:
+            with open(filename, 'r') as file:
+                json_str = file.read()
+                data = cls.from_json_string(json_str)
+                instances = [cls.create(**item) for item in data]
+                return instances
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialize instances to CSV format and save to a CSV file.
+
+        Args:
+            list_objs (list): A list of instances that inherit from Base.
+
+        Returns:
+            None
+        """
+        filename = f"{cls.__name__}.csv"
+        with open(filename, 'w', newline='') as file:
+            writer = csv.writer(file)
+            for obj in list_objs:
+                if cls.__name__ == 'Rectangle':
+                    writer.writerow([
+                        obj.id,
+                        obj.width,
+                        obj.height,
+                        obj.x,
+                        obj.y
+                        ])
+                elif cls.__name__ == 'Square':
+                    writer.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialize instances from a CSV file and return a list of instances.
+
+        Returns:
+            list: A list of instances of the current class.
+        """
+        filename = f"{cls.__name__}.csv"
+        instances = []
+        try:
+            with open(filename, 'r', newline='') as file:
+                reader = csv.reader(file)
+                for row in reader:
+                    if cls.__name__ == 'Rectangle':
+                        instance = cls(
+                                int(row[1]),
+                                int(row[2]),
+                                int(row[3]),
+                                int(row[4]),
+                                int(row[0])
+                                )
+                    elif cls.__name__ == 'Square':
+                        instance = cls(
+                                int(row[1]),
+                                int(row[2]),
+                                int(row[3]),
+                                int(row[0])
+                                )
+                    instances.append(instance)
+            return instances
+        except FileNotFoundError:
+            return []
