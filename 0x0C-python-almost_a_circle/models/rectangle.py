@@ -141,6 +141,7 @@ class Rectangle(Base):
                 f"[Rectangle] ({self.id}) "
                 f"{self.__x}/{self.__y} - {self.__width}/{self.__height}"
                 )
+
     def update(self, *args, **kwargs):
         """
         update rectangle attributes
@@ -153,3 +154,18 @@ class Rectangle(Base):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Return a dictionary representation of the Rectangle instance.
+
+        Returns:
+            dict: A dic containing att id, width, height, x, and y.
+        """
+        return {
+            'id': self.id,
+            'width': self.__width,
+            'height': self.__height,
+            'x': self.__x,
+            'y': self.__y
+        }
