@@ -50,6 +50,7 @@ class Square(Rectangle):
             str: The str rep in the format: [Square] (<id>) <x>/<y> - <size>
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+ 
     def update(self, *args, **kwargs):
         """
         Update the Square attributes withder or keyworded arguments.
@@ -66,3 +67,17 @@ class Square(Rectangle):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """
+        Return a dictionary representation of the Square instance.
+
+        Returns:
+            dict: A dictionary containing the attributes id, size, x, and y.
+        """
+        return {
+            'id': self.id,
+            'size': self.width,
+            'x': self.x,
+            'y': self.y
+        }
