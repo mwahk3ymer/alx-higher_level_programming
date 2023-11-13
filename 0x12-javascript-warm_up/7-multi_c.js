@@ -1,8 +1,5 @@
 #!/usr/bin/node
-/*
-Prints a string n times.
-.
- */
+
 function nPrint (n, txt) {
   if (Number.isNaN(n)) {
     console.log('Missing number of occurrences');
