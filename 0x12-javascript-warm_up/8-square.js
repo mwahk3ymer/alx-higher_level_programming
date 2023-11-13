@@ -1,9 +1,5 @@
 #!/usr/bin/node
 
-
-/*
- Prints a square with 'X'.
- */
 function square (size) {
   if (Number.isNaN(size)) {
     console.log('Missing size');
