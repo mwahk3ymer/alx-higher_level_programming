@@ -2,7 +2,6 @@
 
 class Rectangle {
   constructor() {
-    // Empty constructor for a Rectangle class
   }
 }
 
