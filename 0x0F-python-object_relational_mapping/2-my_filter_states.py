@@ -32,6 +32,7 @@ def search_states(username, password, db_name, state_name):
     cursor.close()
     db.close()
 
+
 if __name__ == "__main__":
     if len(sys.argv) != 5:
         print("Usage: {} <username> <password> <db_name> <state_name>".format(sys.argv[0]))
