@@ -6,6 +6,7 @@ Script that lists all states from the database hbtn_0e_0_usa
 import MySQLdb
 import sys
 
+
 def list_states(username, password, db_name):
     """
     List all states from the database hbtn_0e_0_usa
@@ -29,6 +30,7 @@ def list_states(username, password, db_name):
 
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
