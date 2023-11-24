@@ -38,4 +38,3 @@ if __name__ == "__main__":
     username, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
 
     list_states(username, password, db_name)
-
