@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script that takes a URL, sends a request, and displays X-Request-Id value in the response header.
+Script that takes -Id value in the response header.
 """
 
 import urllib.request
@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     try:
         with urllib.request.urlopen(url) as response:
-            # Retrieve and display the value of X-Request-Id from the response header
+
             x_request_id = response.getheader('X-Request-Id')
             print(x_request_id)
     except urllib.error.URLError as e:
