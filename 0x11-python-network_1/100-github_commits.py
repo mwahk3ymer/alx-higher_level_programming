@@ -16,7 +16,8 @@ if __name__ == "__main__":
     owner_name = sys.argv[2]
 
     # Set up the GitHub API URL for retrieving commits
-    api_url = f"https://api.github.com/repos/{owner_name}/{repository_name}/commits"
+    api_url = "https://api.github.com/repos/{}/{}/commits".format(
+            sys.argv[2], sys.argv[1])
 
     try:
         # Send a GET request to the GitHub API to get the commits
